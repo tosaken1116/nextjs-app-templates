@@ -15,14 +15,13 @@
     "build-storybook": "storybook build"
   },
   "engines": {
-    "npm": "use bun please",
-    "pnpm": "use bun please",
-    "yarn": "use bun please",
-    "bun": ">=0.7.3"
+    "npm": "pnpm please",
+    "yarn": "pnpm please",
+    "bun": "pnpm please"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": "bun run lint:precommit",
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": "bun run fmt:precommit"
+    "src/**/*.{ts,tsx}": "pnpm run lint:precommit",
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": "pnpm run fmt:precommit"
   },
   "dependencies": {
     "@types/node": "20.4.9",

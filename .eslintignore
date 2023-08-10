@@ -11,3 +11,4 @@ build/
 .next/
 
 _templates/
+setup.js
