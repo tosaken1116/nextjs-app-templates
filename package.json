@@ -8,6 +8,12 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "npm": "use bun please",
+    "pnpm": "use bun please",
+    "yarn": "use bun please",
+    "bun": ">=0.7.3"
+  },
   "dependencies": {
     "@types/node": "20.4.9",
     "@types/react": "18.2.20",
