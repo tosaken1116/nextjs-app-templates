@@ -29,6 +29,21 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
     // 更新したpackage.jsonをファイルに書き込む
     fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
+    const huskyFilePath = './.husky/'; // 実際のパスに置き換えてください
+    ["pre-commit", "pre-push", "post-merge"].map((action) => {
+
+    const huskyFileContent = fs.readFileSync(huskyFilePath+action, 'utf-8');
+
+    // 選択したパッケージマネージャーに基づいて.huskyファイルのコマンドを変更
+    const updatedHuskyFileContent = huskyFileContent.replace(
+      /bun/g,
+      selectedPackageManager
+    );
+
+    // 更新した.huskyファイルの内容をファイルに書き込む
+      fs.writeFileSync(huskyFilePath+action, updatedHuskyFileContent, 'utf-8');
+    })
+
     console.log(`Selected ${selectedPackageManager} and updated package.json.`);
   } else {
     console.log('Invalid package manager selection.');
