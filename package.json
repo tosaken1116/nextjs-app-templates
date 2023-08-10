@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "new": "hygen generator new",
     "prepare": "husky install",
     "lint:precommit": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0",
     "fmt:precommit": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss}'",
@@ -55,6 +56,7 @@
     "eslint-plugin-storybook": "^0.6.13",
     "eslint-plugin-unused-imports": "^3.0.0",
     "husky": "^8.0.3",
+    "hygen": "^6.2.11",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.1",
     "storybook": "^7.2.2"

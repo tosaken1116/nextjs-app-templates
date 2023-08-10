@@ -9,3 +9,5 @@ postcss.config.js
 # build
 build/
 .next/
+
+_templates/
