@@ -1,14 +1,15 @@
 ---
-to: src/components/<%= directory %>/<%= name %>/<%= name %>.stories.tsx
+to: src/components/<%= directory %>/<%= name %>/index.stories.tsx
 ---
 
-import { <%= name %> } from './<%= name %>';
-
+import { <%= name %>Presentation  } from './presentations';
+<% gen_files.forEach(file=>{%>import { <%= name %><%= file %>Presentation  } from './presentations/<%= file.toLowerCase() %>';
+<%})%>
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof <%= name %>> = {
+const meta: Meta<typeof <%= name %>Presentation> = {
   title: '<%= name %>',
-  component: <%= name %>,
+  component: <%= name %>Presentation,
   parameters: {
     layout: 'centered',
   },
@@ -16,8 +17,13 @@ const meta: Meta<typeof <%= name %>> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof <%= name %>>;
+type Story = StoryObj<typeof <%= name %>Presentation>;
 
 export const Default: Story = <% if (!have_props) { %>{};<% }else{%>{
   args: {},
 };<% } %>
+<% gen_files.forEach(file=>{%>
+export const <%= file %>: Story = {
+  render: () => <<%= name %><%= file %>Presentation />,
+};<%})
+%>
