@@ -9,6 +9,7 @@
     "lint": "next lint",
     "new:ui": "hygen generator ui",
     "new:model": "hygen generator model",
+    "new:page": "hygen generator page",
     "prepare": "husky install",
     "lint:precommit": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0",
     "fmt:precommit": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss}'",
