@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "new:ui": "hygen generator ui",
     "new:model": "hygen generator model",
     "prepare": "husky install",
     "lint:precommit": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0",
