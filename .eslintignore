@@ -12,3 +12,4 @@ build/
 
 _templates/
 setup.js
+*.config.*
