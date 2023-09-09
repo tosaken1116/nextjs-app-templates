@@ -1,5 +1,5 @@
 ---
-to: src/components/<%= directory %>/<%= name %>/index.stories.tsx
+to: src/components/model/<%= name %>/index.stories.tsx
 ---
 
 import { <%= name %>Presentation  } from './presentations';
@@ -17,6 +17,7 @@ const meta: Meta<typeof <%= name %>Presentation> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof <%= name %>Presentation>;
 
 export const Default: Story = <% if (!have_props) { %>{};<% }else{%>{

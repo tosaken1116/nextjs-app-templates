@@ -1,5 +1,5 @@
 ---
-to: "<%= have_hooks ? `src/components/${directory}/${name}/hooks/index.tsx` : null %>"
+to: "<%= have_hooks ? `src/components/model/${name}/hooks/index.tsx` : null %>"
 ---
 import { useState } from 'react';
 
