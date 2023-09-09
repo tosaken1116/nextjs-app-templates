@@ -13,6 +13,7 @@
     "new:model": "hygen generator model",
     "new:page": "hygen generator page",
     "prepare": "husky install",
+    "markuplint:check": "markuplint -p \"./src/**/*.tsx\"",
     "lint:precommit": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0",
     "fmt:precommit": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss}'",
     "storybook": "storybook dev -p 6006",
@@ -28,12 +29,15 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss}": "pnpm run fmt:precommit"
   },
   "dependencies": {
+    "@markuplint/jsx-parser": "^3.9.0",
+    "@markuplint/react-spec": "^3.10.0",
     "@types/node": "20.4.9",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
+    "markuplint": "^3.12.0",
     "next": "13.4.13",
     "postcss": "8.4.27",
     "react": "18.2.0",
