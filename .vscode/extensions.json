@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "pkief.material-icon-theme",
+    "mosapride.zenkaku",
+    "usernamehw.errorlens",
+    "ygkn.storybook-opener",
+    "yoavbls.pretty-ts-errors"
+  ]
+}
