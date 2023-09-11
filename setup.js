@@ -99,7 +99,7 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
       console.log('Invalid package manager selection.');
     }
     console.log('Installing dependencies...');
-    exec(`${selectedPackageManager} install`, (error, stdout) => {
+    exec(`${selectedPackageManager} install -s`, (error, stdout) => {
       if (error) {
         console.error(`failed installing dependencies: ${error}`);
         return;
@@ -107,5 +107,6 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
       console.log(`success installing dependencies :\n${stdout}`);
     });
     rl.close();
+    console.log("setup finished!")
   });
 });
