@@ -14,7 +14,7 @@ jobs:
             - name: spell check
               run: pnpm run cspell:check
     test:
-        runs-on: upnpmtu-latest
+        runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v3
