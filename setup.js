@@ -59,7 +59,7 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
       fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
       const huskyFilePath = './.husky/'; // 実際のパスに置き換えてください
-      ['pre-commit', 'pre-push', 'post-merge'].map((action) => {
+      ['pre-commit', 'pre-push', 'post-merge', 'commit-msg'].map((action) => {
         const huskyFileContent = fs.readFileSync(
           huskyFilePath + action,
           'utf-8'
@@ -67,7 +67,7 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
 
         // 選択したパッケージマネージャーに基づいて.huskyファイルのコマンドを変更
         const updatedHuskyFileContent = huskyFileContent.replace(
-          /bun/g,
+          /npm|yarn|pnpm|bun/g,
           selectedPackageManager
         );
 
