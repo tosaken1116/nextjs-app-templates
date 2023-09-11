@@ -1,6 +1,7 @@
 const readline = require('readline');
 const fs = require('fs');
 const path = require('path');
+const { exec } = require('child_process');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -97,7 +98,14 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
     } else {
       console.log('Invalid package manager selection.');
     }
-
+    console.log('Installing dependencies...');
+    exec(`${selectedPackageManager} install`, (error, stdout) => {
+      if (error) {
+        console.error(`failed installing dependencies: ${error}`);
+        return;
+      }
+      console.log(`success installing dependencies :\n${stdout}`);
+    });
     rl.close();
   });
 });
