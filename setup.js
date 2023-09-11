@@ -1,11 +1,31 @@
 const readline = require('readline');
 const fs = require('fs');
+const path = require('path');
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+const deleteDirectoryRecursive = (directoryPath) => {
+  try {
+    if (fs.existsSync(directoryPath)) {
+      const files = fs.readdirSync(directoryPath);
 
+      for (const file of files) {
+        const filePath = path.join(directoryPath, file);
+        if (fs.statSync(filePath).isDirectory()) {
+          deleteDirectoryRecursive(filePath); // 再帰的にディレクトリを削除
+        } else {
+          fs.unlinkSync(filePath); // ファイルを削除
+        }
+      }
+
+      fs.rmdirSync(directoryPath); // ディレクトリを削除
+    }
+  } catch (err) {
+    console.error('ディレクトリの削除中にエラーが発生しました:', err);
+  }
+};
 // 対話的にパッケージマネージャーを選択するプロンプトを表示
 rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
   rl.question('Enter a new project name: ', (newProjectName) => {
@@ -58,6 +78,18 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
           'utf-8'
         );
       });
+      const sourceFilePath = `.github/actions/${selectedPackageManager}/ci.yml`;
+      const destinationFilePath = '.github/workflows/ci.yml';
+      try {
+        fs.renameSync(sourceFilePath, destinationFilePath);
+        ['npm', 'yarn', 'pnpm', 'bun'].map((manager) => {
+          if (manager !== selectedPackageManager) {
+            deleteDirectoryRecursive(`./.github/actions/${manager}`);
+          }
+        });
+      } catch (err) {
+        console.error('ファイルの処理中にエラーが発生しました:', err);
+      }
 
       console.log(
         `Selected ${selectedPackageManager} and updated package.json.`
