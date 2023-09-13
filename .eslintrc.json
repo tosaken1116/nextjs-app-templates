@@ -14,10 +14,13 @@
   },
   "plugins": ["import", "unused-imports", "jsx-a11y", "@typescript-eslint"],
   "rules": {
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "arrow-body-style": ["error", "as-needed"],
+    "prefer-template": "warn",
+    "prefer-arrow-callback": "warn",
     "unused-imports/no-unused-imports": "error",
     "react/jsx-boolean-value": "error",
     "react/jsx-curly-brace-presence": "error",
-    "arrow-body-style": ["warn", "always"],
     "react/self-closing-comp": [
       "error",
       {
