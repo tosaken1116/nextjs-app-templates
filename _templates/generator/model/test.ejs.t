@@ -2,8 +2,9 @@
 to: src/components/model/<%= name %>/index.test.tsx
 ---
 import { render, screen } from "@testing-library/react";
-import { <%= name %> } from ".";
+
 import "@testing-library/jest-dom";
+import { <%= name %> } from ".";
 
 describe("model/<%= name %>のテスト", () => {
   it("title is exist", () => {
