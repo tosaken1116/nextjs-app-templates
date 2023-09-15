@@ -1,0 +1,25 @@
+name: ci
+on: push
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup
+              uses: ./.github/actions/npm
+
+            - name: lint
+              run: npm run lint
+            - name: spell check
+              run: npm run cspell:check
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup
+              uses: ./.github/actions/npm
+
+            - name: test
+              run: npm run test

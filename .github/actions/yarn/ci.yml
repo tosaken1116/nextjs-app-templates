@@ -1,0 +1,25 @@
+name: ci
+on: push
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup
+              uses: ./.github/actions/yarn
+
+            - name: lint
+              run: yarn run lint
+            - name: spell check
+              run: yarn run cspell:check
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup
+              uses: ./.github/actions/yarn
+
+            - name: test
+              run: yarn run test
