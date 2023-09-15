@@ -8,3 +8,4 @@ rm ./setup.js
 rm ./setup.sh
 git add .
 git commit --no-verify -m "setup with https://github.com/tosaken1116/nextjs-app-templates"
+cp .env.sample .env.local
