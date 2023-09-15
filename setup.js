@@ -7,6 +7,12 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+const packageRunCommand = {
+  npm: 'npm run',
+  yarn: 'yarn',
+  pnpm: 'pnpm',
+  bun: 'bun run',
+};
 const deleteDirectoryRecursive = (directoryPath) => {
   try {
     if (fs.existsSync(directoryPath)) {
@@ -53,14 +59,14 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
         return engines;
       }, {});
       packageJson['lint-staged'] = {
-        'src/**/*.{ts,tsx}': `${selectedPackageManager} run lint:precommit`,
-        'src/**/*.{js,jsx,ts,tsx,json,css,scss}': `${selectedPackageManager} run fmt:precommit`,
+        'src/**/*.{ts,tsx}': `${packageRunCommand[selectedPackageManager]} lint:precommit`,
+        'src/**/*.{js,jsx,ts,tsx,json,css,scss}': `${packageRunCommand[selectedPackageManager]} fmt:precommit`,
       };
       // 更新したpackage.jsonをファイルに書き込む
       fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
       const huskyFilePath = './.husky/'; // 実際のパスに置き換えてください
-      ['pre-commit', 'pre-push', 'post-merge', 'commit-msg'].map((action) => {
+      ['pre-commit', 'pre-push', 'commit-msg'].map((action) => {
         const huskyFileContent = fs.readFileSync(
           huskyFilePath + action,
           'utf-8'
@@ -68,8 +74,27 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
 
         // 選択したパッケージマネージャーに基づいて.huskyファイルのコマンドを変更
         const updatedHuskyFileContent = huskyFileContent.replace(
-          /npm|yarn|pnpm|bun/g,
-          selectedPackageManager
+          /(bun run|npm run|yarn|pnpm)/g,
+          packageRunCommand[selectedPackageManager]
+        );
+
+        // 更新した.huskyファイルの内容をファイルに書き込む
+        fs.writeFileSync(
+          huskyFilePath + action,
+          updatedHuskyFileContent,
+          'utf-8'
+        );
+      });
+      ['post-merge'].map((action) => {
+        const huskyFileContent = fs.readFileSync(
+          huskyFilePath + action,
+          'utf-8'
+        );
+
+        // 選択したパッケージマネージャーに基づいて.huskyファイルのコマンドを変更
+        const updatedHuskyFileContent = huskyFileContent.replace(
+          /(npm|yarn|pnpm|bun) install/g,
+          `${selectedPackageManager} install`
         );
 
         // 更新した.huskyファイルの内容をファイルに書き込む
@@ -99,7 +124,7 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
       console.log('Invalid package manager selection.');
     }
     console.log('Installing dependencies...');
-    exec(`${selectedPackageManager} install -s`, (error, stdout) => {
+    exec(`${selectedPackageManager} install --silent`, (error, stdout) => {
       if (error) {
         console.error(`failed installing dependencies: ${error}`);
         return;
@@ -107,6 +132,6 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
       console.log(`success installing dependencies :\n${stdout}`);
     });
     rl.close();
-    console.log("setup finished!")
+    console.log('setup finished!');
   });
 });
