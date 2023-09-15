@@ -1,0 +1,19 @@
+name: "pnpm setup"
+description: "Setup pnpm"
+runs:
+  using: composite
+  steps:
+    - name: Use pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8.7.4
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: 'package.json'
+        cache: pnpm
+        cache-dependency-path: pnpm-lock.yaml
+    - name: Install dependencies
+      run: |
+          pnpm install --frozen-lockfile
+      shell: bash
