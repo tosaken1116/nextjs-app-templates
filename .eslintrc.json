@@ -35,6 +35,29 @@
         "format": ["PascalCase"]
       }
     ],
+    "import/no-restricted-paths": [
+      "error",
+      {
+        "zones": [
+          {
+            "target": "./src/components/ui",
+            "from": ["./src/components/model", "./src/components/page"]
+          },
+          {
+            "target": "./src/components/model",
+            "from": ["./src/components/page"]
+          },
+          {
+            "target": "./src/components/page/**/index.tsx",
+            "from": ["./src/components/page"]
+          },
+          {
+            "target": "./src/app/**/page.tsx",
+            "from": ["./src/components/model", "./src/components/ui"]
+          }
+        ]
+      }
+    ],
     "padding-line-between-statements": [
       "error",
       {
