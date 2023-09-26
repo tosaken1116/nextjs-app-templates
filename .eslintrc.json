@@ -28,6 +28,13 @@
         "html": true
       }
     ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      }
+    ],
     "padding-line-between-statements": [
       "error",
       {
