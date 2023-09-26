@@ -28,6 +28,38 @@
         "html": true
       }
     ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": [
+          "import",
+          "multiline-const",
+          "multiline-expression",
+          "multiline-let",
+          "export",
+          "cjs-export",
+          "directive",
+          "function"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": [
+          "import",
+          "multiline-const",
+          "multiline-expression",
+          "multiline-let",
+          "export",
+          "cjs-export",
+          "directive",
+          "function"
+        ]
+      },
+      { "blankLine": "any", "prev": "import", "next": "import" }
+    ],
     "react/jsx-filename-extension": [
       "error",
       {
