@@ -26,5 +26,6 @@ export const Default: Story = <% if (!have_props) { %>{};<% }else{%>{
 <% gen_files.forEach(file=>{%>
 export const <%= file %>: Story = {
   render: () => <<%= name %><%= file %>Presentation />,
-};<%})
+};
+<%})
 %>
