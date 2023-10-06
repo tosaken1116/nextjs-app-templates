@@ -6,7 +6,6 @@ import { <%= name %> } from '.';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof <%= name %>> = {
-  title: '<%= name %>',
   component: <%= name %>,
   parameters: {
     layout: 'centered',
