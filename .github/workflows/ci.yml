@@ -1,25 +1,25 @@
 name: ci
 on: push
 jobs:
-    lint:
-        runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v3
-            - name: Setup
-              uses: ./.github/actions/pnpm
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup
+        uses: ./.github/actions/pnpm
 
-            - name: lint
-              run: pnpm run lint
-            - name: spell check
-              run: pnpm run cspell:check
-    test:
-        runs-on: ubuntu-latest
+      - name: lint
+        run: pnpm run lint
+      - name: spell check
+        run: pnpm run cspell:check
+  test:
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v3
-            - name: Setup
-              uses: ./.github/actions/pnpm
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup
+        uses: ./.github/actions/pnpm
 
-            - name: test
-              run: pnpm run test
+      - name: test
+        run: pnpm run test:ci
