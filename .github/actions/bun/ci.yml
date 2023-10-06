@@ -9,10 +9,8 @@ jobs:
             - name: Setup
               uses: ./.github/actions/bun
 
-            - name: lint
-              run: bun run lint
-            - name: spell check
-              run: bun run cspell:check
+            - name: static check
+              run: bun run ci:check
     test:
         runs-on: ubuntu-latest
 
@@ -22,4 +20,4 @@ jobs:
               uses: ./.github/actions/bun
 
             - name: test
-              run: bun run test
+              run: bun run ci:test-group
