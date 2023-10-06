@@ -8,7 +8,6 @@ import { <%= name %>Presentation  } from './presentations';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof <%= name %>Presentation> = {
-  title: '<%= name %>',
   component: <%= name %>Presentation,
   parameters: {
     layout: 'centered',
