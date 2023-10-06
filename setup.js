@@ -123,14 +123,20 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
     } else {
       console.log('Invalid package manager selection.');
     }
+    fs.unlinkSync('./.github/dependabot.yml');
+    fs.renameSync(
+      './.github/dependabot.sample.yml',
+      './.github/dependabot.yml'
+    );
+
     console.log('Installing dependencies...');
     exec(`${selectedPackageManager} install --silent`, (error, stdout) => {
-      if (error) {
-        console.error(`failed installing dependencies: ${error}`);
-        return;
-      }
-      console.log(`success installing dependencies :\n${stdout}`);
-    });
+        if (error) {
+          console.error(`failed installing dependencies: ${error}`);
+          return;
+        }
+        console.log(`success installing dependencies :\n${stdout}`);
+      });
     rl.close();
     console.log('setup finished!');
   });
