@@ -49,7 +49,7 @@
           },
           {
             "target": "./src/components/page/**/index.tsx",
-            "from": ["./src/components/page"]
+            "from": ["./src/components/page/**/index.tsx"]
           },
           {
             "target": "./src/app/**/page.tsx",
