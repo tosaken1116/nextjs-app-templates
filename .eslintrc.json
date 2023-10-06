@@ -12,15 +12,36 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["import", "unused-imports", "jsx-a11y", "@typescript-eslint"],
+  "plugins": [
+    "react",
+    "import",
+    "unused-imports",
+    "jsx-a11y",
+    "@typescript-eslint"
+  ],
   "rules": {
+    // 関数の戻り値の型を明示的に指定する
     "@typescript-eslint/explicit-function-return-type": "error",
+
+    // 必要な場合にのみアロー関数の本体を使用する
     "arrow-body-style": ["error", "as-needed"],
+
+    // テンプレートリテラルの使用を推奨
     "prefer-template": "warn",
+
+    // アロー関数のコールバックの使用を推奨
     "prefer-arrow-callback": "warn",
+
+    // 未使用のインポートを禁止
     "unused-imports/no-unused-imports": "error",
+
+    // JSXのブール属性の値を明示的に指定する
     "react/jsx-boolean-value": "error",
+
+    // JSXの中括弧のスペースを禁止
     "react/jsx-curly-brace-presence": "error",
+
+    // 自己終了タグを使用する
     "react/self-closing-comp": [
       "error",
       {
@@ -28,6 +49,8 @@
         "html": true
       }
     ],
+
+    // 型の名前をパスカルケースにする
     "@typescript-eslint/naming-convention": [
       "error",
       {
@@ -35,22 +58,28 @@
         "format": ["PascalCase"]
       }
     ],
+
+    // 特定のディレクトリからのimportを禁止する
     "import/no-restricted-paths": [
       "error",
       {
         "zones": [
+          // uiコンポーネントにおいて、modelとpageのimportを禁止する
           {
             "target": "./src/components/ui",
             "from": ["./src/components/model", "./src/components/page"]
           },
+          // modelコンポーネントにおいて、pageのimportを禁止する
           {
             "target": "./src/components/model",
             "from": ["./src/components/page"]
           },
+          // pageコンポーネントにおいて、他のpageコンポーネントからのimportを禁止する
           {
             "target": "./src/components/page/**/index.tsx",
             "from": ["./src/components/page/**/index.tsx"]
           },
+          // appディレクトリ配下においてmodel,uiのimportを禁止する
           {
             "target": "./src/app/**/page.tsx",
             "from": ["./src/components/model", "./src/components/ui"]
@@ -58,9 +87,12 @@
         ]
       }
     ],
+
+    // ステートメント間の空行
     "padding-line-between-statements": [
       "error",
       {
+        // 特定の宣言の間に空行を設ける
         "blankLine": "always",
         "prev": [
           "import",
@@ -72,11 +104,6 @@
           "directive",
           "function"
         ],
-        "next": "*"
-      },
-      {
-        "blankLine": "always",
-        "prev": "*",
         "next": [
           "import",
           "multiline-const",
@@ -88,15 +115,28 @@
           "function"
         ]
       },
+      // import宣言の間に必要があれば空行を設ける
       { "blankLine": "any", "prev": "import", "next": "import" }
     ],
+
+    // JSXを含むファイルの拡張子を指定します。
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [".js", ".jsx", "ts", "tsx"]
+        "extensions": ["tsx"]
       }
     ],
-    "react/function-component-definition": "off",
+
+    // コンポーネントをarrow関数で定義する
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+
+    // importの順序を制御
     "import/order": [
       "error",
       {
@@ -128,6 +168,8 @@
         "newlines-between": "always"
       }
     ],
+
+    // 型のimportにおいてtypeをつけることを推奨
     "@typescript-eslint/consistent-type-imports": [
       "error",
       {
