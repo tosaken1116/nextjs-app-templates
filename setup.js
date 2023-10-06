@@ -59,8 +59,10 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
         return engines;
       }, {});
       packageJson['lint-staged'] = {
-        'src/**/*.{ts,tsx}': `${packageRunCommand[selectedPackageManager]} lint:precommit`,
-        'src/**/*.{js,jsx,ts,tsx,json,css,scss}': `${packageRunCommand[selectedPackageManager]} fmt:precommit`,
+        "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
+          `${packageRunCommand[selectedPackageManager]} check:lint --fix`,
+          `${packageRunCommand[selectedPackageManager]} fmt`
+        ]
       };
       // 更新したpackage.jsonをファイルに書き込む
       fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));

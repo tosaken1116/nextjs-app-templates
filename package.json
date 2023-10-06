@@ -7,17 +7,19 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch --passWithNoTests",
-    "test:ci": "jest --passWithNoTests",
+    "test:unit": "jest  --passWithNoTests",
     "new:ui": "hygen generator ui",
     "new:model": "hygen generator model",
     "new:page": "hygen generator page",
     "prepare": "husky install",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "markuplint:check": "markuplint -p \"./src/**/*.tsx\"",
-    "cspell:check": "cspell -c ./cspell.config.json \"./src/**/*\" --unique --no-progress --no-summary",
-    "lint:precommit": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0",
-    "fmt:precommit": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss}'",
+    "fmt": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss}'",
+    "check:lint": "eslint 'src/**/*.{ts,tsx}' --report-unused-disable-directives --max-warnings 0",
+    "check:cspell": "cspell -c ./cspell.config.json \"./src/**/*\" --unique --no-progress --no-summary",
+    "check:markuplint": "markuplint -p \"./src/**/*.tsx\"",
+    "check": "run-p check:* test:*",
+    "ci:test-group": "run-p test:*",
+    "ci:check": "run-p check:*",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -27,8 +29,10 @@
     "bun": "pnpm please"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": "pnpm run lint:precommit",
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": "pnpm run fmt:precommit"
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
+      "pnpm check:lint --fix",
+      "pnpm fmt"
+    ]
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
@@ -75,6 +79,7 @@
     "jest-environment-jsdom": "^29.6.4",
     "lint-staged": "^13.2.3",
     "markuplint": "^3.12.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.0.1",
     "storybook": "^7.2.2",
     "ts-jest": "^29.1.1",
