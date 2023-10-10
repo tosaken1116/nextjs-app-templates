@@ -140,6 +140,5 @@ rl.question('Choose a package manager (npm/yarn/pnpm/bun): ', (answer) => {
         console.log(`success installing dependencies :\n${stdout}`);
       });
     rl.close();
-    console.log('setup finished!');
   });
 });
