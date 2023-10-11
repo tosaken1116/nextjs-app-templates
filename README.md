@@ -16,9 +16,7 @@
 
 3.  パッケージマネージャの選択
 
-        chmod +x setup.sh
-
-        ./setup.sh
+        bash setup.sh
 
     ```
     Choose a package manager (npm/yarn/pnpm/bun):
