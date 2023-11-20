@@ -1,9 +1,11 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
-      time: "12:00"
-      timezone: "Asia/Tokyo"
-    target-branch: "develop"
+      interval: 'weekly'
+    target-branch: 'develop'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
