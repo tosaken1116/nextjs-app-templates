@@ -6,7 +6,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { <%= name %> } from ".";
 
-describe("model/<%= name %>のテスト", () => {
+describe("model/<%= name %>", () => {
   it("title is exist", () => {
     render(<<%= name %> />);
 
