@@ -1,5 +1,5 @@
 ---
-to: "<%=  `src/components/model/${name}/index.tsx` %>"
+to: "<%=  `src/components/model/${domains}/components/${name}/index.tsx` %>"
 ---
 import type { FC } from 'react';
 import { Suspense } from 'react';

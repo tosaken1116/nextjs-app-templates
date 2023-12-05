@@ -1,5 +1,5 @@
 ---
-to: "<%= gen_files.includes('Empty') ? `src/components/model/${name}/presentations/empty.tsx` : null %>"
+to: "<%= gen_files.includes('Empty') ? `src/components/model/${domains}/components/${name}/presentations/empty.tsx` : null %>"
 ---
 import type { FC } from 'react';
 

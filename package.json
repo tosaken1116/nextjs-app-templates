@@ -11,6 +11,7 @@
     "new:ui": "hygen generator ui",
     "new:model": "hygen generator model",
     "new:page": "hygen generator page",
+    "new:domain": "hygen generator domain",
     "prepare": "husky install",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "fmt": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss}'",

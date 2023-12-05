@@ -1,5 +1,5 @@
 ---
-to: "<%= `src/components/model/${name}/presentations/index.tsx` %>"
+to: "<%= `src/components/model/${domains}/components/${name}/presentations/index.tsx` %>"
 ---
 import type { FC } from 'react';
 

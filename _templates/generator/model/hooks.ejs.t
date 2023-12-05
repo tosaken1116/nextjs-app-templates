@@ -1,5 +1,5 @@
 ---
-to: "<%= have_hooks ? `src/components/model/${name}/hooks/index.ts` : null %>"
+to: "<%= have_hooks ? `src/components/model/${domains}/components/${name}/hooks/index.ts` : null %>"
 ---
 import type { Dispatch, SetStateAction } from 'react';
 import { useState } from 'react';
