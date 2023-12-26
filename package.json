@@ -36,7 +36,7 @@
     ]
   },
   "dependencies": {
-    "next": "14.0.3",
+    "next": "14.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -57,9 +57,9 @@
     "@testing-library/react": "^14.0.0",
     "@tsconfig/strictest": "^2.0.1",
     "@types/jest": "^29.5.4",
-    "@types/node": "20.10.3",
+    "@types/node": "20.10.5",
     "@types/react-dom": "18.2.17",
-    "@types/react": "18.2.42",
+    "@types/react": "18.2.45",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "autoprefixer": "^10.4.16",
