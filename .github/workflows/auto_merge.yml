@@ -22,7 +22,8 @@ jobs:
         if: steps.metadata.outputs.update-type == 'version-update:semver-patch'
 
         run: gh pr review --approve "$PR_URL"
-
+        env:
+            GH_TOKEN: ${{ github.token }}
       - name: Enable auto-merge for Dependabot PRs
         run: gh pr merge --auto --merge "$PR_URL"
 
