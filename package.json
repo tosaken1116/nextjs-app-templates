@@ -41,7 +41,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.2",
+    "@commitlint/cli": "^19.0.1",
     "@commitlint/config-conventional": "^18.4.2",
     "@markuplint/jsx-parser": "^4.0.0",
     "@markuplint/react-spec": "^4.0.1",
