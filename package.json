@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.2",
-    "@commitlint/config-conventional": "^18.4.2",
+    "@commitlint/config-conventional": "^19.0.0",
     "@markuplint/jsx-parser": "^4.0.0",
     "@markuplint/react-spec": "^4.0.1",
     "@storybook/addon-essentials": "^7.2.2",
