@@ -45,7 +45,7 @@
     "@commitlint/config-conventional": "^19.0.0",
     "@markuplint/jsx-parser": "^4.0.0",
     "@markuplint/react-spec": "^4.0.1",
-    "@storybook/addon-essentials": "^7.2.2",
+    "@storybook/addon-essentials": "^8.0.5",
     "@storybook/addon-interactions": "^7.2.2",
     "@storybook/addon-links": "^8.0.5",
     "@storybook/addon-onboarding": "^1.0.8",
