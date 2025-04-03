@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "next": "15.2.0",
-    "react": "19.0.0",
+    "react": "19.1.0",
     "react-dom": "19.0.0"
   },
   "devDependencies": {
@@ -59,7 +59,7 @@
     "@types/jest": "^29.5.4",
     "@types/node": "22.13.5",
     "@types/react-dom": "19.0.1",
-    "@types/react": "19.0.0",
+    "@types/react": "19.1.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.1",
     "autoprefixer": "^10.4.16",
