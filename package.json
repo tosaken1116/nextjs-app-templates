@@ -47,7 +47,7 @@
     "@markuplint/react-spec": "^4.0.1",
     "@storybook/addon-essentials": "^8.0.5",
     "@storybook/addon-interactions": "^8.0.8",
-    "@storybook/addon-links": "^9.1.0",
+    "@storybook/addon-links": "^10.0.0",
     "@storybook/addon-onboarding": "^9.1.0",
     "@storybook/blocks": "^8.0.6",
     "@storybook/nextjs": "^9.0.18",
